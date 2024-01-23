@@ -9,10 +9,10 @@ def restaurant():
     running total. If enter empty string, print the total and exist."""
     total = 0
     while True:
-        item = input("Order: ")
+        item = input("Order: ").strip()
         if not item:
             break
-        if item in MENU:
+        if item.lower() in MENU:
             total += MENU[item]
             print(f"{item} costs {MENU[item]}, total is {total}.")
         else:
