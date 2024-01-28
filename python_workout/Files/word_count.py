@@ -74,4 +74,4 @@ if __name__ == "__main__":
     wordcount("text.txt")
     print(specific_wordcount())
     print(files_size("text.txt"))
-    print(dir_letters_count("../Files"))
+    print(dir_letters_count("."))
