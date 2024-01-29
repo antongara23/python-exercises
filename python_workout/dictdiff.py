@@ -25,8 +25,9 @@ def make_dict(*args: any) -> dict:
     """Takes any even number of arguments and returns a dict based on
     them. The even-indexed arguments become the dict keys, while the
     odd-numbered arguments become the dict values."""
-    if len(args)/2 != 0:
+    if len(args) % 2 != 0:
         print("Number of arguments should be even!")
+        print(len(args)/2)
         sys.exit()
     result_dict = {}
     for index, element in tuple(enumerate(args))[::2]:
