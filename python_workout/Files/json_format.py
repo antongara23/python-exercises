@@ -1,8 +1,7 @@
 import json
-from final_line import try_open_file
 import os
-from glob import glob
 import pathlib
+from final_line import try_open_file
 
 
 def test_scores(school_class: str):
@@ -68,17 +67,15 @@ def files_stat(path: str):
     modification timestamp. Then read the file back in, and identify
     which files were modified most and least recently, and which files
     are largest and smallest, in that directory."""
-    a = pathlib.Path(path)
+    path_object = pathlib.Path(path)
     files_info = []
-    for file in a.iterdir():
+    for file in path_object.iterdir():
         if file.is_file():
             file_size = os.stat(file.absolute()).st_size
             time_modified = os.stat(file.absolute()).st_mtime
             files_info.append([file.name, file_size, time_modified])
     with open("files_info.json", "wt") as jsonfile:
         json.dump(files_info, jsonfile, indent=2)
-    with open("files_info.json", "rt") as jsonfile:
-        files_info = json.load(jsonfile)
     min_size = min(files_info, key=lambda x: x[1])
     max_size = max(files_info, key=lambda x: x[1])
     least_recent_mod = min(files_info, key=lambda x: x[2])
