@@ -1,4 +1,3 @@
-from python_workout.Files.final_line import try_open_file
 from typing import Sequence
 
 
@@ -7,7 +6,6 @@ def myxml(tag: str, text="", **kwargs) -> str:
     return f"<{tag}" + "".join(kwargs) + ">" + text + f"</{tag}>"
 
 
-@try_open_file
 def copyfile(input_file: str, *args: str):
     """Takes one mandatory argument—the name of an input file—and any
     number of additional arguments: the names of files to which the
